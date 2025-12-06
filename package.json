@@ -20,13 +20,13 @@
     "dotenv": "latest",
     "puppeteer": "latest",
     "helmet": "latest",
-    "express-rate-limit": "latest"
-  },
-  "devDependencies": {
+    "express-rate-limit": "latest",
     "@types/express": "latest",
     "@types/cors": "latest",
     "@types/node": "latest",
-    "typescript": "latest",
+    "typescript": "latest"
+  },
+  "devDependencies": {
     "ts-node-dev": "latest"
   }
 }
