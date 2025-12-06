@@ -3,6 +3,8 @@ import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import rateLimit from 'express-rate-limit';
+import cron from 'node-cron';
+import axios from 'axios';
 import crawlerRoutes from './routes/crawler.routes';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.middleware';
 
@@ -74,5 +76,20 @@ app.listen(PORT, () => {
   console.log(`📍 Environment: ${process.env.NODE_ENV || 'development'}`);
   console.log(`🔒 CORS allowed origins: ${allowedOrigins.join(', ')}`);
 });
+
+// Self-ping cron job to keep service warm (runs every 15 minutes)
+// Prevents Render free tier from spinning down due to inactivity
+cron.schedule('*/15 * * * *', async () => {
+  try {
+    const url = process.env.SELF_PING_URL || `https://scan2card-crawler.onrender.com/api/health`;
+    console.log(`⏰ Cron: Pinging self to keep warm: ${url}`);
+    const response = await axios.get(url);
+    console.log(`✅ Cron: Self-ping successful - Status: ${response.status}`);
+  } catch (error: any) {
+    console.error(`❌ Cron: Self-ping failed - ${error.message}`);
+  }
+});
+
+console.log('⏰ Cron job scheduled: Self-ping every 15 minutes');
 
 export default app;

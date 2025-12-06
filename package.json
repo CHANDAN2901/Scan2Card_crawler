@@ -11,19 +11,27 @@
     "lint": "eslint src --ext .ts",
     "test": "jest"
   },
-  "keywords": ["crawler", "scraper", "puppeteer", "microservice"],
+  "keywords": [
+    "crawler",
+    "scraper",
+    "puppeteer",
+    "microservice"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "latest",
+    "@types/cors": "latest",
+    "@types/express": "latest",
+    "@types/node": "latest",
+    "@types/node-cron": "^3.0.11",
+    "axios": "^1.13.2",
     "cors": "latest",
     "dotenv": "latest",
-    "puppeteer": "latest",
-    "helmet": "latest",
+    "express": "latest",
     "express-rate-limit": "latest",
-    "@types/express": "latest",
-    "@types/cors": "latest",
-    "@types/node": "latest",
+    "helmet": "latest",
+    "node-cron": "^4.2.1",
+    "puppeteer": "latest",
     "typescript": "latest"
   },
   "devDependencies": {
