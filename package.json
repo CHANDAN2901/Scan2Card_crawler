@@ -1,0 +1,31 @@
+{
+  "name": "crawler-service",
+  "version": "1.0.0",
+  "description": "Microservice for web scraping and crawling QR code URLs",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "lint": "eslint src --ext .ts",
+    "test": "jest"
+  },
+  "keywords": ["crawler", "scraper", "puppeteer", "microservice"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "puppeteer": "latest",
+    "helmet": "latest",
+    "express-rate-limit": "latest"
+  },
+  "devDependencies": {
+    "@types/express": "latest",
+    "@types/cors": "latest",
+    "@types/node": "latest",
+    "typescript": "latest",
+    "ts-node-dev": "latest"
+  }
+}
